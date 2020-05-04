@@ -1,5 +1,5 @@
 {
-  "name": "@outgrowio/reaction-file-collections-sa-s3",
+  "name": "@rondlite/reaction-file-collections-sa-s3",
   "version": "1.0.0",
   "description": "An S3 storage adapter for Reaction Commerce's reaction-file-collections, brought to you by out:grow",
   "author": "out:grow",
@@ -41,17 +41,19 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.4",
     "@reactioncommerce/file-collections-sa-base": "^0.1.1",
     "aws-sdk": "^2.610.0",
-    "@babel/runtime": "^7.8.4",
+    "babel": "^6.23.0",
     "debug": "^4.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
+    "babel-cli": "^6.0.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.1.0"
   },
