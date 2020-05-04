@@ -18,10 +18,10 @@ export default class S3Store extends StorageAdapter {
       transformRead,
       transformWrite
     });
-
     this.s3 = new S3({
       apiVersion: "2006-03-01",
-      region: process.env.AWS_S3_REGION
+      region: process.env.AWS_S3_REGION,
+      endpoint: process.env.AWS_S3_ENDPOINT,
     });
 
     this.collectionName = `${collectionPrefix}${name}`.trim();
