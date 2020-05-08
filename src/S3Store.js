@@ -2,6 +2,7 @@ import { Readable, Writable } from "stream";
 import S3 from "aws-sdk/clients/s3";
 import StorageAdapter from "@reactioncommerce/file-collections-sa-base";
 import debug from "./debug";
+debug("at the filemaker s3 store so you know");
 
 export default class S3Store extends StorageAdapter {
   constructor({
@@ -18,10 +19,16 @@ export default class S3Store extends StorageAdapter {
       transformRead,
       transformWrite
     });
+    debug('making new S3');
+    this.ep = new AWS.Endpoint('awsproxy.example.com');
     this.s3 = new S3({
       apiVersion: "2006-03-01",
-      region: process.env.AWS_S3_REGION,
       endpoint: process.env.AWS_S3_ENDPOINT,
+      accessKeyId: process.env.AWS_S3_ACCESS_KEY_ID ,
+      secretAccessKey: process.env.AWS_S3_SECRET_ACCESS_KEY,
+      s3ForcePathStyle: true, // needed with minio?
+      signatureVersion: 'v4'
+
     });
 
     this.collectionName = `${collectionPrefix}${name}`.trim();
